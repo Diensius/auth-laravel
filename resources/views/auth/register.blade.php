@@ -60,7 +60,6 @@
           </div>
         </div>
 
-        <!--
         <div class="input-group mb-3">
           <input type="number" name="umur" class="form-control" placeholder="Masukkan Umur">
           <div class="input-group-append">
@@ -84,7 +83,7 @@
               <span class="fas fa-lock"></span>
             </div>
           </div>
-        </div> -->
+        </div>
         <div class="row">
           <div class="col-12">
             <button type="submit" class="btn btn-primary btn-block">Register</button>

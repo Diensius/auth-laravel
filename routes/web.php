@@ -16,7 +16,7 @@
 }); */
 
 Route::get('/', 'HomeController@index');
-//Route::get('/register', 'AuthController@register');
+Route::get('/register', 'AuthController@register');
 Route::get('/welcome', 'AuthController@welcome');
 Route::post('/welcome', 'AuthController@welcome_post');
 Route::get('/master', 'HomeController@master');
@@ -24,7 +24,7 @@ Route::get('/table', 'HomeController@table');
 Route::get('/data_tables', 'HomeController@data_tables');
 
 // Menambahkan pengamanan agar hanya bisa diakses jika sudah login
-//Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth']], function () {
     // CRUD - LARAVEL
     Route::get('/cast/create', 'CastController@create');
     Route::post('/cast', 'CastController@store');
@@ -33,7 +33,7 @@ Route::get('/data_tables', 'HomeController@data_tables');
     Route::get('/cast/{cast_id}/edit', 'CastController@edit');
     Route::put('/cast/{cast_id}', 'CastController@update');
     Route::delete('/cast/{cast_id}', 'CastController@destroy');
-//});
+});
 
 
 Auth::routes();
