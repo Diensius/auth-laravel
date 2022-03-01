@@ -40,6 +40,7 @@
               <p>Dashboard</p>
             </a>
           </li>
+          @auth <!-- fungsi ini akan menyembunyikan item jika belum login -->
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -59,6 +60,17 @@
                 </a>
               </li>
             </ul>
+          </li>
+          @endauth
+          <li class="nav-item bg-danger">
+            <a class="nav-link" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                Logout
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
           </li>
           
         </ul>
