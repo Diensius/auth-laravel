@@ -6,7 +6,9 @@
 
 @section('content')
 
+@auth
 <a href="/cast/create" class="btn btn-primary mb-3">Tambah Data Cast</a>
+@endauth
 
 <table class="table">
     <thead>
@@ -26,6 +28,7 @@
                 <td>{{$item -> umur}}</td> <!-- manggil database umur -->
                 <td><img src="{{asset('image/'.$item->bio)}}" class="img-size-50"></td> <!-- tampilkan gambar -->
                 <td>
+                    @auth
                     <form action="/cast/{{$item->id}}" method="POST">
                         @csrf
                         @method('delete')
@@ -33,6 +36,11 @@
                         <a href="/cast/{{$item->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                         <input type="submit" class="btn btn-danger btn-sm" value="Delete">
                     </form>
+                    @endauth
+
+                    @guest
+                        <a href="/cast/{{$item->id}}" class="btn btn-info btn-sm">Detail</a>
+                    @endguest
                 </td>
             </tr>
 

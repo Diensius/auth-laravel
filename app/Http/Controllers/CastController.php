@@ -9,6 +9,11 @@ use File; // akan mengganti file yang lama
 
 class CastController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','show']);
+    }
+
     public function create()
     {
         $cast = Cast::all();

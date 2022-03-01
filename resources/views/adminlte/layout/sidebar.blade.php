@@ -13,7 +13,12 @@
           <img src="{{asset('/adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          @auth
+            <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          @endauth
+          @guest
+            <a href="#" class="d-block">Belum Login</a>
+          @endguest
         </div>
       </div>
 
@@ -62,6 +67,8 @@
             </ul>
           </li>
           @endauth
+
+          @auth
           <li class="nav-item bg-danger">
             <a class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
@@ -72,6 +79,15 @@
                 @csrf
               </form>
           </li>
+          @endauth
+
+          @guest
+          <li class="nav-item bg-primary">
+            <a href="/login" class="nav-link">
+              <p>Login</p>
+            </a>
+          </li>
+          @endguest
           
         </ul>
       </nav>
