@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    /*public function register()
+    public function register()
     {
         return view('form/form');
-    }*/
+    }
 
     public function welcome()
     {
