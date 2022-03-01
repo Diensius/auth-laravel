@@ -31,3 +31,6 @@ Route::get('/cast/{cast_id}', 'CastController@show');
 Route::get('/cast/{cast_id}/edit', 'CastController@edit');
 Route::put('/cast/{cast_id}', 'CastController@update');
 Route::delete('/cast/{cast_id}', 'CastController@destroy');
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
